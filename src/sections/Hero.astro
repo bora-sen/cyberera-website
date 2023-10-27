@@ -1,14 +1,14 @@
 <section class="w-full min-h-screen bg-[url('/assets/images/hero_bg.jpg')] bg-cover bg-center text-black">
-  <a class="xl:text-[20rem] lg:text-[14rem] md:text-[12rem] font-display leading-none z-40" href="#">CYBERERA</a>
+  <a class="xl:text-[20rem] lg:text-[14rem] md:text-[12rem] text-7xl font-display leading-none z-40" href="#">CYBERERA</a>
 
   <img
-    class="absolute lg:right-3 lg:top-[4rem] lg:h-[30rem] md:right-4 md:top-2 md:h-[20rem] z-20"
+    class="invisible lg:visible absolute lg:right-3 lg:top-[4rem] lg:h-[30rem] md:right-4 md:top-2 md:h-[20rem] z-20"
     src="/assets/images/gifs/samurai_head.gif"
     alt=""
   />
 
   <!-- Hero Section Decal -->
-  <div class="text-black absolute py-4 px-12 border-2 border-black rounded-tl-full ml-4 rounded-br-full z-20">
+  <div class="invisible lg:visible text-black absolute py-4 px-12 border-2 border-black rounded-tl-full ml-4 rounded-br-full z-20">
     <div class="flex items-center justify-center gap-4">
       <div class="w-[10rem]">
         <img src="/assets/images/decals/y2k_decal_1.svg" class="w-full h-full" alt="" />
@@ -22,7 +22,7 @@
   </div>
 
   <!-- WEBGL Canvas -->
-  <canvas id="webGLRenderer" class="absolute bottom-0 right-3 z-10" width="1480" height="850"></canvas>
+  <canvas id="webGLRenderer" class="absolute bottom-0 z-10 lg:right-16" width="1300" height="750"></canvas>
 </section>
 
 <script>
@@ -38,11 +38,14 @@
     }
     const canvas = document.getElementById("webGLRenderer")
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(70, canvas.clientWidth / canvas.clientHeight, 0.1, 1000)
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true })
-    renderer.shadowMap.enabled = true
-    renderer.outputEncoding = THREE.sRGBEncoding
+
+    if (window.innerWidth <= 1250) {
+      renderer.setSize(window.innerWidth, window.innerHeight)
+    }
+
+    const camera = new THREE.PerspectiveCamera(70, canvas.clientWidth / canvas.clientHeight, 0.1, 1000)
 
     const loader = new GLTFLoader()
     const loadedScene = await loader.loadAsync("/assets/model/katanas.glb")
@@ -65,7 +68,7 @@
       y: 0,
       z: 0,
       duration: 2,
-      ease:"power4.Out"
+      ease: "power4.Out",
     })
 
     gsap.from(await loadedModel.rotation, {
@@ -73,14 +76,13 @@
       y: 0,
       z: 0,
       duration: 2,
-      ease:"power4.Out"
+      ease: "power4.Out",
     })
-
 
     createPointLight(0, 2, 0, 0xff0000, 1, 100)
     createPointLight(0, 2, 5, 0x0000ff, 1, 100)
-    createPointLight(0,3,0, 0x000000, 1, 100)
-    const ambient = new THREE.AmbientLight({color:0x000000,intensity:0.2})
+    createPointLight(0, 3, 0, 0x000000, 1, 100)
+    const ambient = new THREE.AmbientLight({ color: 0x000000, intensity: 0.2 })
     scene.add(ambient)
 
     function animate() {
