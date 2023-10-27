@@ -1,7 +1,20 @@
 ---
+import { Hero, Products,Footer } from "../sections"
+import { ScrollingText, Overlay,BarbedWire } from "../components"
 import Layout from "../layouts/Layout.astro"
+import "../styles.css"
 ---
 
 <Layout title="Initial Commit" description="Initial Commit">
-  <div class="text-5xl font-bold bg-red-500 p-8">Initial Commit With Tailwind</div>
+  <Overlay />
+  <ScrollingText containerParams="text-white font-heading bg-black" innerParams="">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum?
+  </ScrollingText>
+  <Hero />
+  <ScrollingText containerParams="text-9xl font-heading font-outline-2 ">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut, nobis!
+  </ScrollingText>
+  <BarbedWire />
+  <Products />
+  <Footer />
 </Layout>
