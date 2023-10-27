@@ -3,7 +3,7 @@
 
   <img
     class="invisible lg:visible absolute lg:right-3 lg:top-[4rem] lg:h-[30rem] md:right-4 md:top-2 md:h-[20rem] z-20"
-    src="/assets/images/gifs/samurai_head.gif"
+    src="/cyberera-website/assets/images/gifs/samurai_head.gif"
     alt=""
   />
 
@@ -11,13 +11,13 @@
   <div class="invisible lg:visible text-black absolute py-4 px-12 border-2 border-black rounded-tl-full ml-4 rounded-br-full z-20">
     <div class="flex items-center justify-center gap-4">
       <div class="w-[10rem]">
-        <img src="/assets/images/decals/y2k_decal_1.svg" class="w-full h-full" alt="" />
+        <img src="/cyberera-website/assets/images/decals/y2k_decal_1.svg" class="w-full h-full" alt="" />
       </div>
       <div class="font-heading flex flex-col justify-between h-full">
         <span>Made By <a href="https://bborasen.com/" class="text-red-200">BORA</a></span>
         <span>Developed && Designed With Beauty of Passion</span>
       </div>
-      <img class="w-[10rem]" src="/assets/images/gifs/shoryuken.gif" alt="" />
+      <img class="w-[10rem]" src="/cyberera-website/assets/images/gifs/shoryuken.gif" alt="" />
     </div>
   </div>
 
@@ -48,7 +48,7 @@
     const camera = new THREE.PerspectiveCamera(70, canvas.clientWidth / canvas.clientHeight, 0.1, 1000)
 
     const loader = new GLTFLoader()
-    const loadedScene = await loader.loadAsync("/assets/model/katanas.glb")
+    const loadedScene = await loader.loadAsync("/cyberera-website/assets/model/katanas.glb")
     const loadedModel = await loadedScene.scene.children[0]
 
     loadedModel.position.x = 0
