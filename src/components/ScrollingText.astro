@@ -1,0 +1,16 @@
+---
+const { containerParams, innerParams } = Astro.props
+---
+
+<div class={`${containerParams}`}>
+  <div class="horizontal-scrolling-items font-bold">
+    <div class={`horizontal-scrolling-items__item ${innerParams}`}>
+      <slot />
+      <slot />
+      <slot />
+      <slot />
+      <slot />
+      <slot />
+    </div>
+  </div>
+</div>
