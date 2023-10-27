@@ -14,11 +14,12 @@ const { title, description } = Astro.props
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/assets/fonts/fonts.css" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body>
+  <body class="overflow-x-hidden bg-[#b4b4b4]">
     <slot />
   </body>
 </html>
